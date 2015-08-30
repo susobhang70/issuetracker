@@ -1,0 +1,71 @@
+<div class="col-md-12">
+	<div class="header">
+		<h1>Project List</h1>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-search"></span>
+		</span>
+		<input type="text" class="form-control" ng-model="searchInput">
+	</div>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th class="col-md-1" style="text-align:center">Priority</th>
+				<th class="col-md-2" style="text-align:center">ID</th>
+				<th class="col-md-4" style="text-align:center">Title</th>
+				<th class="col-md-4" style="text-align:center">Owner</th>
+				<th class="col-md-1" style="text-align:center">Issue Count</th>
+			</tr>
+		</thead>
+		<tbody >
+			<tr ng-repeat="project in projects | filter:searchInput | orderBy:orderchoice.key:orderchoice.reverse">
+				<td class="col-md-1" style="text-align:center">
+					<span class="glyphicon glyphicon-star" ng-if="project.priority"></span>
+				</td>
+				<td class="col-md-2" style="text-align:center">
+					<a href="#/projects/{{project.id}}">{{project.id}}</a>
+				</td>
+				<td class="col-md-4" style="text-align:center">
+					<a href="#/projects/{{project.id}}">{{project.title}}</a>
+				</td>
+				<td class="col-md-4" style="text-align:center">
+					<a href="#">Owner</a>
+				</td>
+				<td class="col-md-1" style="text-align:center">
+					<span class="badge">2</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<select class="form-control pull-right" ng-model="orderchoice" ng-options="order as order.title for order in orders"></select>
+
+	<form ng-submit="addProject()" style="margin-top:30px;">
+		<h3>Add a new project</h3>
+		<div class="form-group">
+			<input type="text" placeholder="Title" ng-model="title" class="form-control"></input>
+		</div>
+		<div class="form-group">
+			<input type="text" placeholder="Description" ng-model="description" class="form-control"></input>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<label>Private Repository:</label>
+			</div>
+			<div class="col-md-1" style="text-align:left;">
+				<input name ='a' type="checkbox" ng-model="private" />
+			</div>
+			<div class="col-md-5"></div>
+			<div style="text-align:right;" class="col-md-4">
+				<button type="submit" class="btn btn-primary">Create</button>
+			</div>
+		</div>	
+			
+		
+	</form>
+</div>
+
+		

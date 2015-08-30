@@ -17,6 +17,28 @@ angular.module('issuetracker', ['ui.router', 'templates'])
 				}
 			);
 
+			$stateProvider
+			.state
+			(
+				'projects',
+				{
+					url: '/projects',
+					templateUrl: 'projects/_projects.html',
+					controller: 'ProjectsCtrl',
+					resolve:
+					{
+						projectPromise:
+						[
+							'projects',
+							function(projects)
+							{
+								return projects.getAll();
+							}
+						]
+					}
+				}
+			);
+
 			$urlRouterProvider.otherwise('index');
 		}
 	]

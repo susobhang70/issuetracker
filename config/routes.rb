@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
-  get 'signup' => 'users#new'
+  #get 'signup' => 'users#new'
 
   root to: 'application#angular'
+
+  resources :projects, only: [:create, :index, :show] do
+    resources :issues, only: [:create, :index, :show] do
+
+      resources :comments, only: [:create, :show]
+
+      member do
+        put '/upvote' => 'issues#upvote'
+      end
+
+    end
+  end
+
   #root 'static_pages#home'
 
   #resource :users
