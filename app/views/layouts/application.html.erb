@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body ng-app="issuetracker">
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <div class="row">
+          <ui-view></ui-view>
+          <!-- class="col-md-6 col-md-offset-3" for others -->
+      </div>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>
