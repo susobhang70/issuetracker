@@ -42,7 +42,7 @@ angular.module('issuetracker', ['ui.router', 'templates'])
 			$stateProvider
 			.state
 			(
-				'project',
+				'projects',
 				{
 					url: '/projects/{id}',
 					templateUrl: 'issues/_issues.html',

@@ -1,18 +1,61 @@
 <div class="col-md-12">
-  			<div class="page-header">
-    			<h3>
-        			#{{project.id}} {{project.title}}
-    			</h3>
-          <p>{{project.description}}</p>
-  			</div>
+  <center>
+    <div class="page-header">
+      <h1>
+        #{{project.id}} {{project.title}}
+      </h1>
+      <h2>
+        {{project.description}}
+      </h2>
+    </div>
+  </center>
 
-  			<div ng-repeat="issue in project.issues">
-    			<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(issue)"></span>
-    				{{issue.upvotes}} - by Owner
-    			<span style="font-size:20px; margin-left:10px;">
-      			{{issue.name}}
-    			</span>
-  			</div>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-search"></span>
+    </span>
+    <input type="text" class="form-control" ng-model="searchInput">
+  </div>
+
+  <h3>List of Issues</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="col-sm-1" ng-click="sortorder(0)" style="text-align:center">ID</th>
+        <th class="col-sm-2" ng-click="sortorder(1)" style="text-align:center">Name</th>
+        <th class="col-sm-1" style="text-align:center">Created By</th>
+        <th class="col-sm-1" style="text-align:center">Comments Count</th>
+        <th class="col-sm-1" ng-click="sortorder(3)" style="text-align:center">Updated At</th>
+        <th class="col-sm-1" ng-click="sortorder(2)" style="text-align:center">Upvotes</th>
+        <th class="col-sm-1" style="text-align:center">Status</th>
+        <th class="col-sm-2" style="text-align:center">Assignees</th>
+        <th class="col-sm-2" style="text-align:center">Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="issue in project.issues | filter:searchInput | orderBy:orderchoice.key:orderchoice.reverse">
+        <td class="col-sm-1" style="text-align:center"><a href='#{{issue.link}}'>{{issue.id}}</a></td>
+        <td class="col-sm-2" style="text-align:center"><a href='#{{issue.link}}'>{{issue.name}}</a></td>
+        <td class="col-sm-1" style="text-align:center"><a href='createdby'>Owner</a></td>
+        <td class="col-sm-1" style="text-align:center"><span class="label label-info">2</span></td>
+        <td class="col-sm-1" style="text-align:center"><span class="label label-default">{{issue.updated_at | limitTo: 10}}</span></td>
+        <td class="col-sm-1" style="text-align:center"><span class="badge"><span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(issue)"></span></span><span class="label label-primary">{{issue.upvotes}}</span></td>
+        <td class="col-sm-1" style="text-align:center">
+          <span  class="label label-success">
+            <span class="glyphicon glyphicon-ok" ng-if="1">
+            </span>
+          </span>
+          <span  class="label label-danger">
+            <span class="glyphicon glyphicon-wrench" ng-if="!1">
+            </span>
+          </span>
+        </td>
+        <td class="col-sm-2" style="text-align:center">Hello</td>
+        <td class="col-sm-2" style="text-align:center">World</td>
+      </tr>
+    </tbody>
+  </table>
+  <!--<select class="form-control pull-right" ng-model="orderchoice" ng-options="order as order.title for order in orders"></select>-->
 
   			<form ng-submit="addIssue()" style="margin-top:30px;">
 				  <h3>Track a new issue</h3>
@@ -20,7 +63,7 @@
 					 <input type="text" placeholder="Issue Name" ng-model="name" class="form-control"></input>
 				  </div>
           <div class="form-group">
-            <input type="text" placeholder="Issue Description" ng-model="description" class="form-control"></input>
+            <textarea ng-model="description" class="form-control" placeholder="Description">Description</textarea>
           </div>
 				  <button type="submit" class="btn btn-primary">Track</button>
 			</form>
