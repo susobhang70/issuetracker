@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Issue Tracker", root_path, id: "logo" %>
+    <a href="#/index" id="logo">Issue Tracker</a>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
+        <li><a href="#index">Home</a></li>
         <!-- if logged_in?  -->
           <li><%= link_to "Projects",  '#/projects' %></li>
           <li><%= link_to "Users", '#' %></li>

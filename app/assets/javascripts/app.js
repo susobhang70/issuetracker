@@ -20,7 +20,7 @@ angular.module('issuetracker', ['ui.router', 'templates'])
 			$stateProvider
 			.state
 			(
-				'projects',
+				'projectindex',
 				{
 					url: '/projects',
 					templateUrl: 'projects/_projects.html',
@@ -33,6 +33,29 @@ angular.module('issuetracker', ['ui.router', 'templates'])
 							function(projects)
 							{
 								return projects.getAll();
+							}
+						]
+					}
+				}
+			);
+
+			$stateProvider
+			.state
+			(
+				'project',
+				{
+					url: '/projects/{id}',
+					templateUrl: 'issues/_issues.html',
+					controller: 'IssuesCtrl',
+					resolve:
+					{
+						project:
+						[
+							'$stateParams',
+							'projects',
+							function($stateParams, projects)
+							{
+								return projects.getProject($stateParams.id);
 							}
 						]
 					}
