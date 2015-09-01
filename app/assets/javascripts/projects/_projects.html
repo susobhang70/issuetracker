@@ -13,10 +13,10 @@
 		<thead>
 			<tr>
 				<th class="col-md-1" style="text-align:center">Priority</th>
-				<th class="col-md-2" style="text-align:center">ID</th>
-				<th class="col-md-4" style="text-align:center">Title</th>
-				<th class="col-md-4" style="text-align:center">Owner</th>
-				<th class="col-md-1" style="text-align:center">Issue Count</th>
+				<th class="col-md-2" ng-click="sortorder(1)" style="text-align:center">ID <span class={{orders[1].icon}}></span></th>
+				<th class="col-md-4" ng-click="sortorder(0)" style="text-align:center">Title <span class={{orders[0].icon}}></span></th>
+				<th class="col-md-3" style="text-align:center">Owner</th>
+				<th class="col-md-2" ng-click="sortorder(2)" style="text-align:center">Issue Count <span class={{orders[2].icon}}></th>
 			</tr>
 		</thead>
 		<tbody >
@@ -34,16 +34,14 @@
 					<a href="#">Owner</a>
 				</td>
 				<td class="col-md-1" style="text-align:center">
-					<span class="badge">2</span>
+					<span class="badge">{{project.issues.length}}</span>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<select class="form-control pull-right" ng-model="orderchoice" ng-options="order as order.title for order in orders"></select>
-
-	<form ng-submit="addProject()" style="margin-top:30px;">
-		<h3>Add a new project</h3>
+	<form ng-show="signedIn()" ng-submit="addProject()" style="margin-top:30px;">
+		<h3 >Add a new project</h3>
 		<div class="form-group">
 			<input type="text" placeholder="Title" ng-model="title" class="form-control"></input>
 		</div>

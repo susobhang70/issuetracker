@@ -18,7 +18,9 @@
   </div>
 
   <h3>List of Issues</h3>
+
   <table class="table table-striped">
+
     <thead>
       <tr>
         <th class="col-sm-1" ng-click="sortorder(0)" style="text-align:center">ID</th>
@@ -32,10 +34,12 @@
         <th class="col-sm-2" style="text-align:center">Tags</th>
       </tr>
     </thead>
+
     <tbody>
       <tr ng-repeat="issue in project.issues | filter:searchInput | orderBy:orderchoice.key:orderchoice.reverse">
-        <td class="col-sm-1" style="text-align:center"><a href='#{{issue.link}}'>{{issue.id}}</a></td>
-        <td class="col-sm-2" style="text-align:center"><a href='#{{issue.link}}'>{{issue.name}}</a></td>
+        <td class="col-sm-1" style="text-align:center"><a href='#/projects/{{project.id}}/issues/{{issue.id}}'>{{issue.id}}</a></td>
+        <!-- <td class="col-sm-2" style="text-align:center"><a href='#/issues/{{issue.id}}'>{{issue.name}}</a></td> -->
+        <td class="col-sm-2" style="text-align:center"><a href='#/projects/{{project.id}}/issues/{{issue.id}}'>{{issue.name}}</a></td>
         <td class="col-sm-1" style="text-align:center"><a href='createdby'>Owner</a></td>
         <td class="col-sm-1" style="text-align:center"><span class="label label-info">2</span></td>
         <td class="col-sm-1" style="text-align:center"><span class="label label-default">{{issue.updated_at | limitTo: 10}}</span></td>
@@ -54,17 +58,18 @@
         <td class="col-sm-2" style="text-align:center">World</td>
       </tr>
     </tbody>
+    
   </table>
-  <!--<select class="form-control pull-right" ng-model="orderchoice" ng-options="order as order.title for order in orders"></select>-->
 
-  			<form ng-submit="addIssue()" style="margin-top:30px;">
-				  <h3>Track a new issue</h3>
-				  <div class="form-group">
-					 <input type="text" placeholder="Issue Name" ng-model="name" class="form-control"></input>
-				  </div>
-          <div class="form-group">
-            <textarea ng-model="description" class="form-control" placeholder="Description">Description</textarea>
-          </div>
-				  <button type="submit" class="btn btn-primary">Track</button>
-			</form>
+  <form ng-show="signedIn()" ng-submit="addIssue()" style="margin-top:30px;">
+    <h3>Track a new issue</h3>
+	  <div class="form-group">
+	    <input type="text" placeholder="Issue Name" ng-model="name" class="form-control"></input>
+		</div>
+    <div class="form-group">
+      <textarea ng-model="description" class="form-control" placeholder="Description"></textarea>
+    </div>
+		<button type="submit" class="btn btn-primary">Track</button>
+	</form>
+
 </div>

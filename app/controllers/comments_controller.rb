@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 		project = Project.find(issue.project_id)
 		comment = issue.comments.create(comment_params)
 
-		respond_with issue, comment
+		respond_with project, issue, comment
 	end
 
 	def show

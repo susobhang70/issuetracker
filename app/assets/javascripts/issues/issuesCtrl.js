@@ -6,9 +6,11 @@ angular.module('issuetracker')
 		'$scope',
 		'projects',
 		'project',
-		function($scope, projects, project)
+		'Auth',
+		function($scope, projects, project, Auth)
 		{
 			$scope.project = project;
+			$scope.signedIn = Auth.isAuthenticated;
 			$scope.searchInput = '';
 			$scope.orders = 
 			[

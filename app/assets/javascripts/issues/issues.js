@@ -6,10 +6,7 @@ angular.module('issuetracker')
 		'$http',
 		function($http)
 		{
-			var o = 
-			{ 
-				projects: [] 
-			};
+			var o = { projects: [] };
 
 			o.getAll = function()
 			{

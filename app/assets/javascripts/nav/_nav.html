@@ -1,0 +1,21 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container" ng-controller="NavCtrl">
+    <a href="#/index" id="logo">Issue Tracker</a>
+
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#index">Home</a></li>
+
+        <li><a href="#/projects">Projects</a></li>
+        <li ng-show="signedIn()"><a href='#/'>Settings</a></li>
+        <li ng-show="signedIn()"><a href='#/'>{{ user.username }}</a></li>
+        <li ng-show="signedIn()"><a href='#index' ng-click="logout()">Logout</a></li>
+
+        <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
+        <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+
+      </ul>
+    </nav>
+
+  </div>
+</header>

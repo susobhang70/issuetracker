@@ -6,5 +6,6 @@
     {{message}}
   </h2>
 
-  <a type='button' class="btn btn-lg btn-primary" href='#'>Sign up now!</a>
+  <a ng-hide="signedIn()" type='button' class="btn btn-lg btn-primary" href='#/register'>Sign up now!</a>
+  <a ng-show="signedIn()" type='button' class="btn btn-lg btn-primary" href='#/projects'>Browse Projects</a>
 </div>
