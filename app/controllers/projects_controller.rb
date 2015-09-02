@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+	before_filter :authenticate_user!, only: [:create]
 	def index
 		respond_with Project.all
 	end
@@ -9,11 +9,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		respond_with Project.create(project_params)
+		respond_with Project.create(project_params.merge(user_id: current_user.id))
 	end
+	
+
 
 	private
 	def project_params
 		params.require(:project).permit(:title, :description)
 	end
+
 end

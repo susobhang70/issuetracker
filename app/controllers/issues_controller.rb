@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-
+	before_filter :authenticate_user!, only: [:create, :upvote]
 	def index
 		project = Project.find(params[:project_id])
 		respond_with project, project.issues
@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
 
 	def create
 		project = Project.find(params[:project_id])
-		issue = project.issues.create(issue_params)
+		issue = project.issues.create(issue_params.merge(user_id: current_user.id))
 		
 		respond_with project, issue
 	end
@@ -26,9 +26,13 @@ class IssuesController < ApplicationController
 
 		respond_with project, issue
 	end
+	
+
 
 	private
 	def issue_params
 		params.require(:issue).permit(:name, :description)
 	end
+
+
 end

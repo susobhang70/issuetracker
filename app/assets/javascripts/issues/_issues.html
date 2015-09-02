@@ -25,8 +25,7 @@
       <tr>
         <th class="col-sm-1" ng-click="sortorder(0)" style="text-align:center">ID</th>
         <th class="col-sm-2" ng-click="sortorder(1)" style="text-align:center">Name</th>
-        <th class="col-sm-1" style="text-align:center">Created By</th>
-        <th class="col-sm-1" style="text-align:center">Comments Count</th>
+        <th class="col-sm-2" style="text-align:center">Created By</th>
         <th class="col-sm-1" ng-click="sortorder(3)" style="text-align:center">Updated At</th>
         <th class="col-sm-1" ng-click="sortorder(2)" style="text-align:center">Upvotes</th>
         <th class="col-sm-1" style="text-align:center">Status</th>
@@ -40,8 +39,7 @@
         <td class="col-sm-1" style="text-align:center"><a href='#/projects/{{project.id}}/issues/{{issue.id}}'>{{issue.id}}</a></td>
         <!-- <td class="col-sm-2" style="text-align:center"><a href='#/issues/{{issue.id}}'>{{issue.name}}</a></td> -->
         <td class="col-sm-2" style="text-align:center"><a href='#/projects/{{project.id}}/issues/{{issue.id}}'>{{issue.name}}</a></td>
-        <td class="col-sm-1" style="text-align:center"><a href='createdby'>Owner</a></td>
-        <td class="col-sm-1" style="text-align:center"><span class="label label-info">2</span></td>
+        <td class="col-sm-2" style="text-align:center"><a href='createdby'>{{issue.user.username}}</a></td>
         <td class="col-sm-1" style="text-align:center"><span class="label label-default">{{issue.updated_at | limitTo: 10}}</span></td>
         <td class="col-sm-1" style="text-align:center"><span class="badge"><span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(issue)"></span></span><span class="label label-primary">{{issue.upvotes}}</span></td>
         <td class="col-sm-1" style="text-align:center">
