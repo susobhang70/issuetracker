@@ -23,20 +23,10 @@ angular.module('issuetracker')
 					icon: 'glyphicon glyphicon-sort',
 					icon1: 'glyphicon glyphicon-sort-by-alphabet',
 					icon2: 'glyphicon glyphicon-sort-by-alphabet-alt'
-				},
-				{
-					id: 2,
-					title: 'Sort by User',
-					key: 'username',
-					reverse: true,
-					timescount: 0,
-					icon: 'glyphicon glyphicon-sort',
-					icon1: 'glyphicon glyphicon-sort-by-alphabet',
-					icon2: 'glyphicon glyphicon-sort-by-alphabet-alt'
 				}		
 			];
 			
-			$scope.orderchoice = $scope.orders[1];
+			$scope.orderchoice = $scope.orders[0];
 
 			$scope.sortorder = function(id)
 			{

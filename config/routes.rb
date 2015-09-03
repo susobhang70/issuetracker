@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    member do
+      get '/projects' => 'users#projects'
+    end
+  end
 
   #root 'static_pages#home'
 

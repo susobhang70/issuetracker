@@ -22,10 +22,17 @@ angular.module('issuetracker')
 
 		  	$scope.register = function() 
 		  	{
-		    	Auth.register($scope.user).then(function()
-		    	{
-		      		$state.go('projectindex');
-		    	});
+		  		if($scope.user.password === $scope.passconf)
+		  		{
+			    	Auth.register($scope.user).then(function()
+			    	{
+			      		$state.go('projectindex');
+			    	});
+			    }
+			    else
+			    {
+			    	alert("Passwords don't match!");
+			    }
 		  	};			
 		}
 	]
