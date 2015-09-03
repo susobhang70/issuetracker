@@ -19,7 +19,7 @@
 			</tr>
 		</thead>
 		<tbody >
-			<tr ng-repeat="user in users | filter:searchInput | orderBy:orderchoice.key:orderchoice.reverse">
+			<tr ng-repeat="user in users | filter:searchInput">
 				
 				<td class="col-md-1" style="text-align:center">
 					<span class="glyphicon glyphicon-user"></span>

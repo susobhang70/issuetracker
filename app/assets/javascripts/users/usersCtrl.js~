@@ -52,7 +52,7 @@ angular.module('issuetracker')
 					$scope.orderchoice.reverse = false;
 					$scope.orderchoice.icon = $scope.orderchoice.icon1;
 				}
-			};
+			}
 		}
 	]
 );
