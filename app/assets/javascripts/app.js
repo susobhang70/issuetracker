@@ -129,6 +129,28 @@ angular.module('issuetracker', ['ui.router', 'templates','Devise'])
 					   	}
 				    ]
 			    }
+		    );
+
+		    $stateProvider
+		    .state
+		    (
+		    	'users', 
+			    {
+			      	url: '/users',
+			      	templateUrl: 'users/_users.html',
+			      	controller: 'UsersCtrl',
+			      	resolve:
+					{
+						userPromise:
+						[
+							'users',
+							function(users)
+							{
+								return users.getAll();
+							}
+						]
+					}
+			    }
 		    );			
 
 			$urlRouterProvider.otherwise('index');

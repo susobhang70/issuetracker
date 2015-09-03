@@ -11,8 +11,6 @@ class ProjectsController < ApplicationController
 	def create
 		respond_with Project.create(project_params.merge(user_id: current_user.id))
 	end
-	
-
 
 	private
 	def project_params
