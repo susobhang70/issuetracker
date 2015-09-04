@@ -134,7 +134,7 @@ angular.module('issuetracker', ['ui.router', 'templates','Devise'])
 		    $stateProvider
 		    .state
 		    (
-		    	'users', 
+		    	'userindex', 
 			    {
 			      	url: '/users',
 			      	templateUrl: 'users/_users.html',
@@ -151,7 +151,44 @@ angular.module('issuetracker', ['ui.router', 'templates','Devise'])
 						]
 					}
 			    }
-		    );			
+		    );
+
+		    $stateProvider
+		    .state
+		    (
+		    	'users', 
+			    {
+			      	url: '/users/{id}',
+					templateUrl: 'profile/_profile.html',
+					controller: 'ProfileCtrl',
+
+					resolve:
+					{
+						user:
+						[
+							'$stateParams',
+							'$state',
+							'users',
+							'Auth',
+							function($stateParams, $state, users, Auth)
+							{
+								
+								console.log("going here", Auth._currentUser.id, $stateParams.id);
+								if(Auth._currentUser.id == $stateParams.id)
+								{	
+									console.log("here");
+									return users.getUser($stateParams.id);
+								}	
+								else
+								{
+									alert("Unauthorized access");
+									window.location("#");
+								}
+							}
+						]
+					}
+			    }
+		    );		
 
 			$urlRouterProvider.otherwise('index');
 		}

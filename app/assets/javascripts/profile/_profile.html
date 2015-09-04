@@ -1,0 +1,21 @@
+<div class="container">
+  <h1><span class="glyphicon glyphicon-user"></span> Update Account</h1>
+  <h4><object align="left"><span class="label label-primary">Username</span> {{user.username}}</object><object align="right"> {{user.email}} <span class="label label-primary">Email</span></object></h4>
+</div>
+<div class="page-header"></div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+	<form ng-submit="updatePassword()">
+	  <div class="form-group">
+	    <input type="password" class="form-control" placeholder="Old Password" ng-model="user.password">
+	  </div>
+	  <div class="form-group">
+	    <input type="password" class="form-control" placeholder="New Password" ng-model="user.newpassword">
+	  </div>
+	  <div class="form-group">
+	    <input type="password" class="form-control" placeholder="New Password Confirmation" ng-model="user.passwordconf">
+	  </div>
+	  <center><input type="submit" class="btn btn-success" value="Update"></center>
+	</form>
+  </div>
+</div>

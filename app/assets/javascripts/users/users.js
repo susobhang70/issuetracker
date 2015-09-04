@@ -16,6 +16,14 @@ angular.module('issuetracker')
 				});
 			};
 
+			o.getUser = function(id)
+			{
+				return $http.get('/users/' + id +'.json').then(function(res)
+				{
+					return res.data;
+				});
+			}
+
 			return o;
 		}
 

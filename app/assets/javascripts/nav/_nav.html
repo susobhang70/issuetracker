@@ -7,9 +7,9 @@
         <li><a href="#index">Home</a></li>
 
         <li><a href="#/projects">Projects</a></li>
-        <li ng-show="signedIn()"><a href='#/'>Settings</a></li>
+        <li ng-show="signedIn()"><a href='#/users/{{user.id}}'>Settings</a></li>
         <li ng-show="signedIn()"><a href='#/users'>Users</a></li>
-        <li ng-show="signedIn()"><a href='#/'>{{ user.username }}</a></li>
+        <li ng-show="signedIn()"><a href='javascript:void(0);'>{{ user.username }}</a></li>
         <li ng-show="signedIn()"><a href='#index' ng-click="logout()">Logout</a></li>
 
         <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
