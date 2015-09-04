@@ -22,7 +22,7 @@ angular.module('issuetracker')
 				{
 					return res.data;
 				});
-			}
+			};
 
 			return o;
 		}
