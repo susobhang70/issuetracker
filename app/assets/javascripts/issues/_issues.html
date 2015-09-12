@@ -29,7 +29,7 @@
         <th class="col-sm-1" ng-click="sortorder(3)" style="text-align:center">Updated At</th>
         <th class="col-sm-1" ng-click="sortorder(2)" style="text-align:center">Upvotes</th>
         <th class="col-sm-1" style="text-align:center">Status</th>
-        <th class="col-sm-2" style="text-align:center">Assignees</th>
+        <th class="col-sm-2" style="text-align:center">Assignee</th>
         <th class="col-sm-2" style="text-align:center">Tags</th>
 	<th class="col-sm-2" style="text-align:center">Milestones</th>
       </tr>
@@ -52,7 +52,7 @@
             </span>
           </span>
         </td>
-        <td class="col-sm-2" style="text-align:center">Hello</td>
+        <td class="col-sm-2" style="text-align:center">{{issue.assignee}}</td>
         <td class="col-sm-2" style="text-align:center">{{issue.tags}}</td>
 	<td class="col-sm-2" style="text-align:center">{{issue.milestone}}</td>
       </tr>
@@ -68,6 +68,10 @@
     <div class="form-group">
       <textarea ng-model="description" class="form-control" placeholder="Description"></textarea>
     </div>
+	
+    <div class="form-group">
+      <input type="text" ng-model="assignee" class="form-control" placeholder="Assignee"></type>
+    </div>	
 	
     <div class="form-group">
       <input type="text" ng-model="tags" class="form-control" placeholder="Tags separated by space"></type>
