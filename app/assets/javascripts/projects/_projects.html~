@@ -12,7 +12,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th class="col-md-1" style="text-align:center">Private</th>
+				<th class="col-md-1" style="text-align:center">Priority</th>
 				<th class="col-md-1" ng-click="sortorder(1)" style="text-align:center">ID <span class={{orders[1].icon}}></span></th>
 				<th class="col-md-3" ng-click="sortorder(0)" style="text-align:center">Title <span class={{orders[0].icon}}></span></th>
 				<th class="col-md-2" style="text-align:center">Owner</th>

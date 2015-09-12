@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150912143836) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "tags"
+    t.string   "milestone"
     t.boolean  "privateflag"
     t.string   "members"
   end
