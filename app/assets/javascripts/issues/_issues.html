@@ -53,8 +53,8 @@
           </span>
         </td>
         <td class="col-sm-2" style="text-align:center">Hello</td>
-        <td class="col-sm-2" style="text-align:center">World</td>
-	<td class="col-sm-2" style="text-align:center">World</td>
+        <td class="col-sm-2" style="text-align:center">{{issue.tags}}</td>
+	<td class="col-sm-2" style="text-align:center">{{issue.milestone}}</td>
       </tr>
     </tbody>
     
@@ -70,7 +70,7 @@
     </div>
 	
     <div class="form-group">
-      <input type="text" ng-model="tag" class="form-control" placeholder="Tags separated by semicolon(;)"></type>
+      <input type="text" ng-model="tags" class="form-control" placeholder="Tags separated by space"></type>
     </div>
 
     <div class="form-group">

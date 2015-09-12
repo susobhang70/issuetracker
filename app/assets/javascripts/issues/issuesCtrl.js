@@ -61,12 +61,14 @@ angular.module('issuetracker')
 				{	
 					return;
 				}
-				projects.addIssue(project.id, { name: $scope.name, description: $scope.description }).success(function(issue)
+				projects.addIssue(project.id, { name: $scope.name, description: $scope.description, tags: $scope.tags, milestone: $scope.milestone }).success(function(issue)
 				{
 					$scope.project.issues.push(issue);
 				})
 				$scope.name = '';
 				$scope.description = '';
+				$scope.tags = '';
+				$scope.milestone = '';
 			}
 			$scope.incrementUpvotes = function(issue)
 			{

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912123559) do
+ActiveRecord::Schema.define(version: 20150912131531) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20150912123559) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "user_id"
+    t.string   "milestone"
+    t.string   "tags"
   end
 
   add_index "issues", ["project_id"], name: "index_issues_on_project_id"
@@ -43,8 +45,6 @@ ActiveRecord::Schema.define(version: 20150912123559) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "tags"
-    t.string   "milestone"
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
