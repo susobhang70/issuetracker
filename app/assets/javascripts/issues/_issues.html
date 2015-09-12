@@ -37,18 +37,17 @@
     <tbody>
       <tr ng-repeat="issue in project.issues | filter:searchInput | orderBy:orderchoice.key:orderchoice.reverse">
         <td class="col-sm-1" style="text-align:center"><a href='#/projects/{{project.id}}/issues/{{issue.id}}'>{{issue.id}}</a></td>
-        <!-- <td class="col-sm-2" style="text-align:center"><a href='#/issues/{{issue.id}}'>{{issue.name}}</a></td> -->
         <td class="col-sm-2" style="text-align:center"><a href='#/projects/{{project.id}}/issues/{{issue.id}}'>{{issue.name}}</a></td>
         <td class="col-sm-2" style="text-align:center"><a href='createdby'>{{issue.user.username}}</a></td>
         <td class="col-sm-1" style="text-align:center"><span class="label label-default">{{issue.updated_at | limitTo: 10}}</span></td>
         <td class="col-sm-1" style="text-align:center"><span class="badge"><span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(issue)"></span></span><span class="label label-primary">{{issue.upvotes}}</span></td>
         <td class="col-sm-1" style="text-align:center">
-          <span  class="label label-success">
-            <span class="glyphicon glyphicon-ok" ng-if="1">
+          <span  class="label label-success" ng-if="!1">
+            <span class="glyphicon glyphicon-ok" ng-if="!1">
             </span>
           </span>
-          <span  class="label label-danger">
-            <span class="glyphicon glyphicon-wrench" ng-if="!1">
+          <span  class="label label-danger" ng-if="1">
+            <span class="glyphicon glyphicon-wrench" ng-if="1">
             </span>
           </span>
         </td>

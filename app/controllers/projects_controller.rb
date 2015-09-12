@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
 		respond_with Project.create(project_params.merge(user_id: current_user.id))
 	end
 
+	def edit
+		project = Project.find(params[:id])
+	end
+
 	private
 	def project_params
 		params.require(:project).permit(:title, :description)

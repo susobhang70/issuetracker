@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  #get 'signup' => 'users#new'
 
   root to: 'application#angular'
 
@@ -21,8 +20,6 @@ Rails.application.routes.draw do
       get '/projects' => 'users#projects'
     end
   end
-
-  #root 'static_pages#home'
 
   #resource :users
 
