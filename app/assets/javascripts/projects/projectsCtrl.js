@@ -71,7 +71,7 @@ angular.module('issuetracker')
 				{	
 					return;
 				}
-				projects.create({title: $scope.title, description: $scope.description, privateflag: $scope.privateflag});
+				projects.create({title: $scope.title, description: $scope.description, privateflag: $scope.privateflag, members: $scope.members });
 				$scope.title =  '';
 				$scope.description = '';
 			};
