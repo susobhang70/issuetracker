@@ -9,8 +9,29 @@ angular.module('issuetracker')
 		function($scope, projects, Auth)
 		{
 			$scope.projects = projects.projects;
-			$scope.signedIn = Auth.isAuthenticated;
 			$scope.searchInput = '';
+
+			$scope.signedIn = Auth.isAuthenticated;
+  			$scope.logout = Auth.logout;
+  			Auth.currentUser().then(function (user)
+  			{
+    			$scope.user = user;
+  			});
+  			$scope.$on('devise:new-registration', function (e, user)
+  			{
+		    	$scope.user = user;
+		  	});
+
+		  	$scope.$on('devise:login', function (e, user)
+		  	{
+		    	$scope.user = user;
+		  	});
+
+		  	$scope.$on('devise:logout', function (e, user)
+		  	{
+		    	$scope.user = {};
+		  	});
+
 			$scope.orders = 
 			[
 				{
